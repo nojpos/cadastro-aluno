@@ -105,8 +105,7 @@
           <div class="form-group">
             <label for="uf" class="col-form-label-sm">UF<span class="text-danger">*</span></label>
             <select name="uf" id="uf" class="form-control form-control-sm">
-              <option selected>Escolha...</option>
-              <option>...</option>
+              <option *ngFor="let uf of ufs" selected>{{ uf }}</option>
             </select>
           </div>
         </div>
@@ -120,7 +119,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="turmas" class="col-form-label-sm">Turmas</label>
-            <div class="card card-body">
+            <div class="card card-body shadow-sm">
               <label class="checkbox-inline">
               <input type="checkbox" value=""> Calculo 1
               </label>
