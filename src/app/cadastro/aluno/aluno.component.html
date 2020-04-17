@@ -92,19 +92,19 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="endereco" class="col-form-label-sm">Endereço<span class="text-danger">*</span></label>
-            <input type="text" name="endereco" class="form-control form-control-sm" placeholder="Endereço" id="endereco">
+            <input type="text" name="endereco" class="form-control form-control-sm" placeholder="Endereço" id="endereco" formControlName="endereco">
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
             <label for="cep" class="col-form-label-sm">CEP<span class="text-danger">*</span></label>
-            <input type="text" class="form-control form-control-sm" placeholder="Cep" name="cep" id="cep">
+            <input type="text" class="form-control form-control-sm" placeholder="Cep" name="cep" id="cep" formControlName="cep">
           </div>
         </div>
         <div class="col-md-0">
           <div class="form-group">
             <label for="uf" class="col-form-label-sm">UF<span class="text-danger">*</span></label>
-            <select name="uf" id="uf" class="form-control form-control-sm">
+            <select name="uf" id="uf" class="form-control form-control-sm" formControlName="cep">
               <option *ngFor="let uf of ufs" selected>{{ uf }}</option>
             </select>
           </div>
