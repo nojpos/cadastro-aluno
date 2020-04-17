@@ -49,7 +49,7 @@ export class AlunoComponent implements OnInit {
     "SC",
     "SE",
     "SP",
-    "TO"
+    "TO",
   ];
 
   ngOnInit(): void {
@@ -68,7 +68,8 @@ export class AlunoComponent implements OnInit {
       endereco: ["", Validators.required],
       cep: ["", Validators.required],
       uf: ["", Validators.required],
-      cidade: ["", Validators.required]
+      cidade: ["", Validators.required],
+      turmas: ["", Validators.required],
     });
   }
 
