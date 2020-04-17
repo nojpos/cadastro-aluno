@@ -6,7 +6,7 @@
     <strong>Atenção</strong>, o formulário não está preenchico corretamente
   </div>
 
-  <hr>
+  <hr />
 
   <!-- Formulário -->
   <form novalidate (ngSubmit)="adicionar()" [formGroup]="cadastroForm">
@@ -14,49 +14,143 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-              <label for="nome" class="col-form-label-sm">Nome<span class="text-danger">*</span></label>
-              <input id="nome" type="text" name="nome" class="form-control form-control-sm" placeholder="Nome" autocomplete="off" formControlName="nome" 
-              [ngClass]="{'is-invalid': cadastroForm.get('nome').errors && (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)}"/>
-              <span class="text-danger" *ngIf="cadastroForm.get('nome').errors && (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)">
-                <p>Preencha o campo Nome</p>
+            <label for="nome" class="col-form-label-sm"
+              >Nome<span class="text-danger">*</span></label
+            >
+            <input
+              id="nome"
+              type="text"
+              name="nome"
+              class="form-control form-control-sm"
+              placeholder="Nome"
+              autocomplete="off"
+              formControlName="nome"
+              [ngClass]="{
+                'is-invalid':
+                  cadastroForm.get('nome').errors &&
+                  (cadastroForm.get('nome').dirty ||
+                    cadastroForm.get('nome').touched)
+              }"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('nome').errors &&
+                (cadastroForm.get('nome').dirty ||
+                  cadastroForm.get('nome').touched)
+              "
+            >
+              <p>Preencha o campo Nome</p>
             </span>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-              <label for="dataNascimento" class="col-form-label-sm">Data de Nascimento<span class="text-danger">*</span></label>
-              <input id="dataNascimento" type="date" name="dataNascimento" class="form-control form-control-sm" placeholder="dataNascimento" autocomplete="off" formControlName="dataNascimento" 
-              [ngClass]="{'is-invalid': cadastroForm.get('dataNascimento').errors && (cadastroForm.get('dataNascimento').dirty || cadastroForm.get('dataNascimento').touched)}"/>
-              <span class="text-danger" *ngIf="cadastroForm.get('dataNascimento').errors && (cadastroForm.get('dataNascimento').dirty || cadastroForm.get('dataNascimento').touched)">
-                <p>Selecione um data</p>
+            <label for="dataNascimento" class="col-form-label-sm"
+              >Data de Nascimento<span class="text-danger">*</span></label
+            >
+            <input
+              id="dataNascimento"
+              type="date"
+              name="dataNascimento"
+              class="form-control form-control-sm"
+              placeholder="dataNascimento"
+              autocomplete="off"
+              formControlName="dataNascimento"
+              [ngClass]="{
+                'is-invalid':
+                  cadastroForm.get('dataNascimento').errors &&
+                  (cadastroForm.get('dataNascimento').dirty ||
+                    cadastroForm.get('dataNascimento').touched)
+              }"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('dataNascimento').errors &&
+                (cadastroForm.get('dataNascimento').dirty ||
+                  cadastroForm.get('dataNascimento').touched)
+              "
+            >
+              <p>Selecione um data</p>
             </span>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-              <label for="cpf" class="col-form-label-sm">CPF<span class="text-danger">*</span></label>
-              <input id="cpf" type="text" name="cpf" class="form-control form-control-sm" placeholder="CPF" autocomplete="off" formControlName="cpf" 
-              cpf [textMask]="{mask: MASKS.cpf.textMask}"
-              [ngClass]="{'is-invalid': cadastroForm.get('cpf').errors && (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)}"/>
-              <span class="text-danger" *ngIf="cadastroForm.get('cpf')?.errors?.required && (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)">
-                <p>Preencha o campo CPF</p>
-              </span>
-              <span class="text-danger" *ngIf="cadastroForm.get('cpf')?.errors?.cpf && (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)">
-                <p>CPF em formato inválido</p>
-              </span>
+            <label for="cpf" class="col-form-label-sm"
+              >CPF<span class="text-danger">*</span></label
+            >
+            <input
+              id="cpf"
+              type="text"
+              name="cpf"
+              class="form-control form-control-sm"
+              placeholder="CPF"
+              autocomplete="off"
+              formControlName="cpf"
+              cpf
+              [textMask]="{ mask: MASKS.cpf.textMask }"
+              [ngClass]="{
+                'is-invalid':
+                  cadastroForm.get('cpf').errors &&
+                  (cadastroForm.get('cpf').dirty ||
+                    cadastroForm.get('cpf').touched)
+              }"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('cpf')?.errors?.required &&
+                (cadastroForm.get('cpf').dirty ||
+                  cadastroForm.get('cpf').touched)
+              "
+            >
+              <p>Preencha o campo CPF</p>
+            </span>
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('cpf')?.errors?.cpf &&
+                (cadastroForm.get('cpf').dirty ||
+                  cadastroForm.get('cpf').touched)
+              "
+            >
+              <p>CPF em formato inválido</p>
+            </span>
           </div>
         </div>
         <div class="col-md-2">
-          <label for="cpf" class="col-form-label-sm">Sexo<span class="text-danger">*</span></label>
+          <label for="cpf" class="col-form-label-sm"
+            >Sexo<span class="text-danger">*</span></label
+          >
           <div class="form-group form-check-inline">
             <div class="custom-control custom-radio">
-							<input id="Masculino" type="radio" class="custom-control-input" value="Masculino" name="sexo" formControlName="sexo">
-              <label class="custom-control-label" for="Masculino">Masculino</label>
+              <input
+                id="Masculino"
+                type="radio"
+                class="custom-control-input"
+                value="Masculino"
+                name="sexo"
+                formControlName="sexo"
+              />
+              <label class="custom-control-label" for="Masculino"
+                >Masculino</label
+              >
             </div>
 
             <div class="custom-control custom-radio">
-              <input id="Feminino" type="radio" class="custom-control-input" value="Feminino" name="sexo" formControlName="sexo">
-              <label class="custom-control-label" for="Feminino">Feminino</label>
+              <input
+                id="Feminino"
+                type="radio"
+                class="custom-control-input"
+                value="Feminino"
+                name="sexo"
+                formControlName="sexo"
+              />
+              <label class="custom-control-label" for="Feminino"
+                >Feminino</label
+              >
             </div>
           </div>
         </div>
@@ -64,64 +158,151 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-              <label for="email" class="col-form-label-sm">E-mail<span class="text-danger">*</span></label>
-              <input id="email" type="text" name="email" class="form-control form-control-sm" placeholder="E-mail" autocomplete="off" formControlName="email"
-              [ngClass]="{'is-invalid': cadastroForm.get('email').errors && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)}"/>
-              <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.required && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
-                <p>Preencha o campo email</p>
-              </span>
-              <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.email && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
-                <p>E-mail em formato invalido</p>
-              </span>
+            <label for="email" class="col-form-label-sm"
+              >E-mail<span class="text-danger">*</span></label
+            >
+            <input
+              id="email"
+              type="text"
+              name="email"
+              class="form-control form-control-sm"
+              placeholder="E-mail"
+              autocomplete="off"
+              formControlName="email"
+              [ngClass]="{
+                'is-invalid':
+                  cadastroForm.get('email').errors &&
+                  (cadastroForm.get('email').dirty ||
+                    cadastroForm.get('email').touched)
+              }"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('email')?.errors?.required &&
+                (cadastroForm.get('email').dirty ||
+                  cadastroForm.get('email').touched)
+              "
+            >
+              <p>Preencha o campo email</p>
+            </span>
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('email')?.errors?.email &&
+                (cadastroForm.get('email').dirty ||
+                  cadastroForm.get('email').touched)
+              "
+            >
+              <p>E-mail em formato invalido</p>
+            </span>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <label for="telefone" class="col-form-label-sm">Telefone<span class="text-danger">*</span></label>
-            <input id="telefone" type="text" name="telefone" class="form-control form-control-sm" placeholder="telefone" autocomplete="off" formControlName="telefone" 
-            telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}"
-            [ngClass]="{'is-invalid': cadastroForm.get('telefone').errors && (cadastroForm.get('telefone').dirty || cadastroForm.get('telefone').touched)}"/>
-            <span class="text-danger" *ngIf="cadastroForm.get('telefone')?.errors?.required && (cadastroForm.get('telefone').dirty || cadastroForm.get('telefone').touched)">
+            <label for="telefone" class="col-form-label-sm"
+              >Telefone<span class="text-danger">*</span></label
+            >
+            <input
+              id="telefone"
+              type="text"
+              name="telefone"
+              class="form-control form-control-sm"
+              placeholder="telefone"
+              autocomplete="off"
+              formControlName="telefone"
+              telefone
+              #telefone
+              [textMask]="{ mask: MASKS.telefone.textMaskFunction }"
+              [ngClass]="{
+                'is-invalid':
+                  cadastroForm.get('telefone').errors &&
+                  (cadastroForm.get('telefone').dirty ||
+                    cadastroForm.get('telefone').touched)
+              }"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('telefone')?.errors?.required &&
+                (cadastroForm.get('telefone').dirty ||
+                  cadastroForm.get('telefone').touched)
+              "
+            >
               <p>Informe o Telefone</p>
             </span>
-            <span class="text-danger" *ngIf="cadastroForm.get('telefone')?.errors?.telefone && (cadastroForm.get('telefone').dirty || cadastroForm.get('telefone').touched)">
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('telefone')?.errors?.telefone &&
+                (cadastroForm.get('telefone').dirty ||
+                  cadastroForm.get('telefone').touched)
+              "
+            >
               <p>Telefone em formato invalido</p>
             </span>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label for="endereco" class="col-form-label-sm">Endereço<span class="text-danger">*</span></label>
-            <input type="text" name="endereco" class="form-control form-control-sm" placeholder="Endereço" id="endereco" formControlName="endereco">
+            <label for="endereco" class="col-form-label-sm"
+              >Endereço<span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              name="endereco"
+              class="form-control form-control-sm"
+              placeholder="Endereço"
+              id="endereco"
+            />
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <label for="cep" class="col-form-label-sm">CEP<span class="text-danger">*</span></label>
-            <input type="text" class="form-control form-control-sm" placeholder="Cep" name="cep" id="cep" formControlName="cep">
+            <label for="cep" class="col-form-label-sm"
+              >CEP<span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              placeholder="Cep"
+              name="cep"
+              id="cep"
+            />
           </div>
         </div>
         <div class="col-md-0">
           <div class="form-group">
-            <label for="uf" class="col-form-label-sm">UF<span class="text-danger">*</span></label>
-            <select name="uf" id="uf" class="form-control form-control-sm" formControlName="cep">
+            <label for="uf" class="col-form-label-sm"
+              >UF<span class="text-danger">*</span></label
+            >
+            <select name="uf" id="uf" class="form-control form-control-sm">
               <option *ngFor="let uf of ufs" selected>{{ uf }}</option>
             </select>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <label for="cidade" class="col-form-label-sm">Cidade<span class="text-danger">*</span></label>
-            <input type="text" name="cidade" id="cidade" class="form-control form-control-sm" placeholder="Cidade">
+            <label for="cidade" class="col-form-label-sm"
+              >Cidade<span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              name="cidade"
+              id="cidade"
+              class="form-control form-control-sm"
+              placeholder="Cidade"
+            />
           </div>
         </div>
         <!-- turmas -->
         <div class="col-md-6">
           <div class="form-group">
             <label for="turmas" class="col-form-label-sm">Turmas</label>
-            <div class="card card-body shadow-sm">
-              <label class="checkbox-inline">
-              <input type="checkbox" value=""> Calculo 1
+            <div class="card card-body">
+              <label *ngFor="let turma of turmas" class="checkbox-inline">
+                <input type="checkbox" value="{{ turma.numero }}" />
+                {{ turma.nome }}
               </label>
             </div>
           </div>
@@ -129,7 +310,8 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="validados" class="col-form-label-sm">
-              <input type="checkbox" name="dvalidados" id="dvalidados"> Documentos validados na secretaria.
+              <input type="checkbox" name="dvalidados" id="dvalidados" />
+              Documentos validados na secretaria.
             </label>
           </div>
         </div>
@@ -137,12 +319,25 @@
       <div class="row">
         <div class="col-md-3">
           <div class="form-group">
-            <button id="registrar" type="submit" class="btn btn-sm btn-outline-success">Registrar (Só quando tá válido)</button>
+            <button
+              id="registrar"
+              type="submit"
+              class="btn btn-sm btn-outline-success"
+            >
+              Registrar (Só quando tá válido)
+            </button>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <button id="registrar" type="reset" class="btn btn-sm btn-outline-secondary" (click)="limparFomulario()">Limpar</button>
+            <button
+              id="registrar"
+              type="reset"
+              class="btn btn-sm btn-outline-secondary"
+              (click)="limparFomulario()"
+            >
+              Limpar
+            </button>
           </div>
         </div>
       </div>
@@ -154,14 +349,10 @@
           <p>Formulário Tocado: {{ cadastroForm.touched }}</p>
           <p>Formulário Sujo: {{ cadastroForm.dirty }}</p>
           <p>{{ cadastroForm.value | json }}</p>
+          <br />
+          <p>{{ turmas | json }}</p>
         </div>
       </div>
-
     </div>
   </form>
 </div>
-
-
-
-
-
