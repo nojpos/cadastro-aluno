@@ -34,7 +34,7 @@ export class AlunoComponent implements OnInit {
       this.aluno = Object.assign({}, this.aluno, this.cadastroForm.value);
       console.log(this.aluno);
     } else {
-      console.log('Formulario invalido');
+      console.log('Formulário inválido');
     }
   }
 }
