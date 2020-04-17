@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Aluno } from 'src/app/models/aluno';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MASKS, NgBrazilValidators } from 'ng-brazil';
 
 @Component({
@@ -21,6 +21,7 @@ export class AlunoComponent implements OnInit {
     this.criarFormulario();
   }
 
+  // Aqui vão os campos do formulário
   criarFormulario() {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],
