@@ -1,3 +1,4 @@
+import { Turma } from "./turma";
 export class Aluno {
     id: number;
     nome: string;
@@ -6,6 +7,7 @@ export class Aluno {
     cpf: string;
     email: string;
     telefone: string;
+    turma: Turma;
     endereco: string;
     cep: number;
     uf: string;
