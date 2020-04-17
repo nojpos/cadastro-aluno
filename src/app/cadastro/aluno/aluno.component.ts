@@ -25,6 +25,7 @@ export class AlunoComponent implements OnInit {
   criarFormulario() {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],
+      dataNascimento: [''],
       cpf: ['', [Validators.required, NgBrazilValidators.cpf]],
       email: ['', [Validators.required, Validators.email]]
     });
@@ -32,7 +33,8 @@ export class AlunoComponent implements OnInit {
 
   adicionar() {
     if (this.cadastroForm.dirty && this.cadastroForm.valid){
-      this.aluno = Object.assign({}, this.aluno, this.cadastroForm.value);
+      console.log(`AQQQ ${this.aluno}\n aaaaa ${this.cadastroForm.value}`);
+      this.aluno = Object.assign({}, this.aluno,this.cadastroForm.value);
       console.log(this.aluno);
     } else {
       console.log('Formulário inválido');
