@@ -255,6 +255,16 @@
               placeholder="Endereço"
               id="endereco"
             />
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('telefone')?.errors?.required &&
+                (cadastroForm.get('telefone').dirty ||
+                  cadastroForm.get('telefone').touched)
+              "
+            >
+              <p>Informe o Telefone</p>
+            </span>
           </div>
         </div>
         <div class="col-md-2">
