@@ -123,13 +123,8 @@
       }
     }
   },
-<<<<<<< HEAD
   "defaultProject": "cadastro-aluno",
   "cli": {
     "analytics": "f174e837-2a7e-4154-84ef-0379988a15a9"
   }
 }
-=======
-  "defaultProject": "cadastro-aluno"
-}
->>>>>>> 52fc98de1bf4c8abd3677ac1007eec1a08259536
