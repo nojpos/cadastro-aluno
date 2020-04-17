@@ -4,13 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AlunoComponent } from './cadastro/aluno/aluno.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgBrazil } from 'ng-brazil' 
+import { TextMaskModule } from 'angular2-text-mask';
+
 @NgModule({
   declarations: [
     AppComponent,
-    AlunoComponent
+    AlunoComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TextMaskModule,
+    NgBrazil
   ],
   providers: [],
   bootstrap: [AppComponent]

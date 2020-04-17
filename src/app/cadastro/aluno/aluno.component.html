@@ -1,1 +1,65 @@
-<p>aluno works!</p>
+<div class="container main-container">
+  <h4>Cadastro de Aluno</h4>
+  <hr>
+  <form novalidate (ngSubmit)="adicionar()" [formGroup]="cadastroForm">
+    <div class="form-horizontal">
+
+      <div class="col-md-10">
+        <div class="form-group">
+            <label for="nome" class="col-form-label-sm">Nome</label>
+            <input id="nome" type="text" name="nome" class="form-control form-control-sm" placeholder="Nome" autocomplete="off" formControlName="nome" 
+            [ngClass]="{'is-invalid': cadastroForm.get('nome').errors && (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)}"/>
+            <span class="text-danger" *ngIf="cadastroForm.get('nome').errors && (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)">
+              <p>Preencha o campo Nome</p>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="form-group">
+            <label for="cpf" class="col-form-label-sm">CPF</label>
+            <input id="cpf" type="text" name="cpf" class="form-control form-control-sm" placeholder="CPF" autocomplete="off" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"
+            [ngClass]="{'is-invalid': cadastroForm.get('cpf').errors && (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)}"/>
+            <span class="text-danger" *ngIf="cadastroForm.get('cpf')?.errors?.required && (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)">
+              <p>Preencha o campo CPF</p>
+            </span>
+            <span class="text-danger" *ngIf="cadastroForm.get('cpf')?.errors?.cpf && (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)">
+              <p>CPF em formato invalido</p>
+            </span>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="form-group">
+            <label for="email" class="col-form-label-sm">E-mail</label>
+            <input id="email" type="text" name="email" class="form-control form-control-sm" placeholder="E-mail" autocomplete="off" formControlName="email"
+            [ngClass]="{'is-invalid': cadastroForm.get('email').errors && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)}"/>
+            <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.required && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
+              <p>Preencha o campo email</p>
+            </span>
+            <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.email && (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
+              <p>E-mail em formato invalido</p>
+            </span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <button id="registrar" type="submit" class="btn btn-outline-success" >Registrar (Só quando tá válido)</button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <p>Formulário Válido: {{ cadastroForm.valid }}</p>
+          <p>Formulário Tocado: {{ cadastroForm.touched }}</p>
+          <p>Formulário Sujo: {{ cadastroForm.dirty }}</p>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+
+
+
+
