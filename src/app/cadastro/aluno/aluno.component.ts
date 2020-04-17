@@ -13,6 +13,8 @@ export class AlunoComponent implements OnInit {
   MASKS = MASKS;
   cadastroForm: FormGroup;
 
+  alertInvalido: boolean = false;
+
   constructor(private fb: FormBuilder) { }
 
   aluno: Aluno;
@@ -25,17 +27,33 @@ export class AlunoComponent implements OnInit {
   criarFormulario() {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],
+      dataNascimento: ['', [Validators.required]],
+      sexo: ['Masculino', [Validators.required]],
       cpf: ['', [Validators.required, NgBrazilValidators.cpf]],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
+      telefone: ['', [Validators.required, NgBrazilValidators.telefone]]
     });
+  }
+
+  limparFomulario() {
+    this.cadastroForm.reset({
+      nome: '',
+      dataNascimento: '',
+      sexo: '0',
+      cpf: '',
+      email: ''
+    });
+    this.alertInvalido = false;
   }
 
   adicionar() {
     if (this.cadastroForm.dirty && this.cadastroForm.valid){
       this.aluno = Object.assign({}, this.aluno, this.cadastroForm.value);
       console.log(this.aluno);
+      this.limparFomulario();
     } else {
       console.log('Formulário inválido');
+      this.alertInvalido = true;
     }
   }
 }

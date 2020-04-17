@@ -4,5 +4,6 @@ export class Aluno {
     dataNascimento: Date;
     sexo: string;
     cpf: string;
-    email: string
+    email: string;
+    telefone: string;
 }
