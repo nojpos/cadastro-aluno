@@ -22,6 +22,35 @@ export class AlunoComponent implements OnInit {
     new Turma(604, "Qualidade e Auditoria de Software"),
     new Turma(707, "Matemática Discreta"),
   ];
+  ufs: Array<String> = [
+    "AC",
+    "AL",
+    "AM",
+    "AP",
+    "BA",
+    "CE",
+    "DF",
+    "ES",
+    "GO",
+    "MA",
+    "MG",
+    "MS",
+    "MT",
+    "PA",
+    "PB",
+    "PE",
+    "PI",
+    "PR",
+    "RJ",
+    "RN",
+    "RO",
+    "RR",
+    "RS",
+    "SC",
+    "SE",
+    "SP",
+    "TO"
+  ];
 
   ngOnInit(): void {
     this.criarFormulario();
@@ -36,6 +65,10 @@ export class AlunoComponent implements OnInit {
       cpf: ["", [Validators.required, NgBrazilValidators.cpf]],
       email: ["", [Validators.required, Validators.email]],
       telefone: ["", [Validators.required, NgBrazilValidators.telefone]],
+      endereco: ["", Validators.required],
+      cep: ["", Validators.required],
+      uf: ["", Validators.required],
+      cidade: ["", Validators.required]
     });
   }
 

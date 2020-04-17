@@ -277,8 +277,7 @@
               >UF<span class="text-danger">*</span></label
             >
             <select name="uf" id="uf" class="form-control form-control-sm">
-              <option selected>Escolha...</option>
-              <option>...</option>
+              <option *ngFor="let uf of ufs" selected>{{ uf }}</option>
             </select>
           </div>
         </div>
