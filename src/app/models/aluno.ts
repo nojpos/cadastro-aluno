@@ -6,4 +6,8 @@ export class Aluno {
     cpf: string;
     email: string;
     telefone: string;
+    endereco: string;
+    cep: number;
+    uf: string;
+    cidade: string;
 }
