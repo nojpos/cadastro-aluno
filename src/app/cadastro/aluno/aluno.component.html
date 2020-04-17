@@ -294,7 +294,8 @@
                 (cadastroForm.get('uf').dirty ||
                   cadastroForm.get('uf').touched)
             }">
-              <option *ngFor="let uf of ufs" selected>{{ uf }}</option>
+              <option selected>Selecione...</option>
+              <option *ngFor="let uf of ufs">{{ uf }}</option>
             </select>
           </div>
         </div>
