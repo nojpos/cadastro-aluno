@@ -425,11 +425,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>josivaldo</th>
-        <td>22</td>
-        <td>Masculino</td>
-        <td>LPWEB, CALC1</td>
+      <tr *ngFor="let a of alunos">
+        <th>{{ a.nome }}</th>
+        <td>{{ a.idade }}</td>
+        <td>{{ a.sexo }}</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

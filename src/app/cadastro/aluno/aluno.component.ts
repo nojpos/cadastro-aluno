@@ -22,6 +22,9 @@ export class AlunoComponent implements OnInit {
     new Turma(604, "Qualidade e Auditoria de Software"),
     new Turma(707, "Matemática Discreta"),
   ];
+
+  alunos: Array<Aluno> = [];
+
   ufs: Array<String> = [
     "AC",
     "AL",
@@ -69,23 +72,36 @@ export class AlunoComponent implements OnInit {
       cep: ["", Validators.required],
       uf: ["", Validators.required],
       cidade: ["", Validators.required],
-      turmas: ["", Validators.required],
     });
   }
 
   limparFomulario() {
-    this.cadastroForm.reset({
-      nome: "",
-      dataNascimento: "",
-      sexo: "0",
-      cpf: "",
-      email: "",
-    });
+    this.cadastroForm.reset();
     this.alertInvalido = false;
+  }
+
+  calculaIdade(dtHoje: Date, dtAluno: Date) {
+    if (dtHoje.getMonth < dtAluno.getMonth) {
+      if (dtHoje.getDay() < dtAluno.getDay()) {
+        return dtHoje.getFullYear() - dtAluno.getFullYear() - 1;
+      } else {
+        return dtHoje.getFullYear() - dtAluno.getFullYear();
+      }
+    }
+    return dtHoje.getFullYear() - dtAluno.getFullYear() - 1;
   }
 
   atualizarDadosObjeto() {
     this.aluno = Object.assign({}, this.aluno, this.cadastroForm.value);
+
+    let dtAtual: Date = new Date();
+
+    let dt: string = this.aluno.dataNascimento.toString() + "T00:00:00";
+    let dtAluno = new Date(dt);
+
+    this.aluno.idade = this.calculaIdade(dtAtual, dtAluno);
+
+    this.alunos.push(this.aluno);
   }
 
   adicionar() {
