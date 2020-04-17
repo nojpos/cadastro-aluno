@@ -46,11 +46,17 @@ export class AlunoComponent implements OnInit {
     this.alertInvalido = false;
   }
 
+  atualizarDadosObjeto() {
+    this.aluno = Object.assign({}, this.aluno,this.cadastroForm.value);
+  }
+
   adicionar() {
     if (this.cadastroForm.dirty && this.cadastroForm.valid){
+      this.atualizarDadosObjeto();
+
       console.log(`AQQQ ${this.aluno}\n aaaaa ${this.cadastroForm.value}`);
-      this.aluno = Object.assign({}, this.aluno,this.cadastroForm.value);
       console.log(this.aluno);
+      
       this.limparFomulario();
     } else {
       console.log('Formulário inválido');
