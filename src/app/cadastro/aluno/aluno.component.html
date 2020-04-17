@@ -265,18 +265,29 @@
             <span
               class="text-danger"
               *ngIf="
-                cadastroForm.get('telefone')?.errors?.required &&
-                (cadastroForm.get('telefone').dirty ||
-                  cadastroForm.get('telefone').touched)
+                cadastroForm.get('endereco')?.errors?.required &&
+                (cadastroForm.get('endereco').dirty ||
+                  cadastroForm.get('endereco').touched)
               "
             >
-              <p>Informe o Telefone</p>
+              <p>Informe o Endereço</p>
+            </span>
+            <span
+              class="text-danger"
+              *ngIf="
+                cadastroForm.get('endereco').touched &&
+                cadastroForm.get('endereco').value.length < 30
+              "
+            >
+              <p>Endereço deve ter pelo menos 30 caracteres</p>
             </span>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <label for="cep" class="col-form-label-sm">CEP<span class="text-danger">*</span></label>
+            <label for="cep" class="col-form-label-sm"
+              >CEP<span class="text-danger">*</span></label
+            >
             <input
               type="text"
               class="form-control form-control-sm"
@@ -298,12 +309,18 @@
             <label for="uf" class="col-form-label-sm"
               >UF<span class="text-danger">*</span></label
             >
-            <select name="uf" id="uf" class="form-control form-control-sm" formControlName="uf" [ngClass]="{
-              'is-invalid':
-                cadastroForm.get('uf').errors &&
-                (cadastroForm.get('uf').dirty ||
-                  cadastroForm.get('uf').touched)
-            }">
+            <select
+              name="uf"
+              id="uf"
+              class="form-control form-control-sm"
+              formControlName="uf"
+              [ngClass]="{
+                'is-invalid':
+                  cadastroForm.get('uf').errors &&
+                  (cadastroForm.get('uf').dirty ||
+                    cadastroForm.get('uf').touched)
+              }"
+            >
               <option *ngFor="let uf of ufs" selected>{{ uf }}</option>
             </select>
           </div>
