@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AlunoComponent } from './cadastro/aluno/aluno.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlunoComponent
   ],
   imports: [
     BrowserModule
