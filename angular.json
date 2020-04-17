@@ -24,14 +24,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+<<<<<<< HEAD
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "src/styles.css"
+=======
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
+>>>>>>> 52fc98de1bf4c8abd3677ac1007eec1a08259536
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.slim.js",
@@ -95,13 +98,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         },
@@ -113,9 +111,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -133,8 +129,13 @@
       }
     }
   },
+<<<<<<< HEAD
   "defaultProject": "cadastro-aluno",
   "cli": {
     "analytics": "f174e837-2a7e-4154-84ef-0379988a15a9"
   }
 }
+=======
+  "defaultProject": "cadastro-aluno"
+}
+>>>>>>> 52fc98de1bf4c8abd3677ac1007eec1a08259536
