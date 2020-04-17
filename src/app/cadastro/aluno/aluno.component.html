@@ -194,7 +194,7 @@
                   cadastroForm.get('email').touched)
               "
             >
-              <p>E-mail em formato invalido</p>
+              <p>E-mail em formato inválido</p>
             </span>
           </div>
         </div>
@@ -239,7 +239,7 @@
                   cadastroForm.get('telefone').touched)
               "
             >
-              <p>Telefone em formato invalido</p>
+              <p>Telefone em formato inválido</p>
             </span>
           </div>
         </div>
@@ -316,9 +316,10 @@
               formControlName="uf"
               [ngClass]="{
                 'is-invalid':
-                  cadastroForm.get('uf').errors &&
-                  (cadastroForm.get('uf').dirty ||
-                    cadastroForm.get('uf').touched)
+                  (cadastroForm.get('uf').errors &&
+                    (cadastroForm.get('uf').dirty ||
+                      cadastroForm.get('uf').touched)) ||
+                  cadastroForm.get('uf').value == 'Selecione...'
               }"
             >
               <option selected>Selecione...</option>
@@ -413,7 +414,7 @@
 <div class="container">
   <h4>Alunos Cadastrados</h4>
 
-  <hr>
+  <hr />
   <table class="table">
     <thead>
       <tr>
