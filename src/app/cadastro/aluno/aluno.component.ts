@@ -3,6 +3,7 @@ import { Aluno } from "src/app/models/aluno";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MASKS, NgBrazilValidators } from "ng-brazil";
 import { Turma } from "src/app/models/turma";
+import { Uf } from 'src/app/uteis/uf';
 
 @Component({
   selector: "app-aluno",
@@ -18,42 +19,9 @@ export class AlunoComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   aluno: Aluno;
-  turmas: Array<Turma> = [
-    new Turma(604, "Qualidade e Auditoria de Software"),
-    new Turma(707, "Matemática Discreta"),
-  ];
-
-  alunos: Array<Aluno> = [];
-
-  ufs: Array<String> = [
-    "AC",
-    "AL",
-    "AM",
-    "AP",
-    "BA",
-    "CE",
-    "DF",
-    "ES",
-    "GO",
-    "MA",
-    "MG",
-    "MS",
-    "MT",
-    "PA",
-    "PB",
-    "PE",
-    "PI",
-    "PR",
-    "RJ",
-    "RN",
-    "RO",
-    "RR",
-    "RS",
-    "SC",
-    "SE",
-    "SP",
-    "TO",
-  ];
+  turmas: Turma[] = Turma.listaTurmas;
+  alunos: Aluno[] = [];
+  ufs: Uf[] = Uf.listaUf;
 
   ngOnInit(): void {
     this.criarFormulario();
@@ -68,15 +36,28 @@ export class AlunoComponent implements OnInit {
       cpf: ["", [Validators.required, NgBrazilValidators.cpf]],
       email: ["", [Validators.required, Validators.email]],
       telefone: ["", [Validators.required, NgBrazilValidators.telefone]],
-      endereco: ["", Validators.required],
-      cep: ["", Validators.required],
+      endereco: ["", [Validators.required, Validators.minLength(30)]],
+      cep: ["", [Validators.required, NgBrazilValidators.cep]],
       uf: ["", Validators.required],
       cidade: ["", Validators.required],
+      docValidado: [false, []]
     });
   }
 
   limparFomulario() {
-    this.cadastroForm.reset();
+    this.cadastroForm.reset({
+      nome: '',
+      dataNascimento: '',
+      sexo: 'Masculino',
+      cpf: '',
+      email: '',
+      telefone: '',
+      endereco: '',
+      cep: '',
+      uf: '',
+      cidade: '',
+      docValidado: false
+    });
     this.alertInvalido = false;
   }
 
@@ -108,12 +89,8 @@ export class AlunoComponent implements OnInit {
     if (this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.atualizarDadosObjeto();
 
-      console.log(`AQQQ ${this.aluno}\n aaaaa ${this.cadastroForm.value}`);
-      console.log(this.aluno);
-
       this.limparFomulario();
     } else {
-      console.log("Formulário inválido");
       this.alertInvalido = true;
     }
   }

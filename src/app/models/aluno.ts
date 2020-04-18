@@ -13,4 +13,5 @@ export class Aluno {
   cep: number;
   uf: string;
   cidade: string;
+  docValidado: boolean;
 }

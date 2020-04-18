@@ -6,4 +6,9 @@ export class Turma {
     this.numero = numero;
     this.nome = nome;
   }
+
+  static listaTurmas = [
+    new Turma(604, 'Qualidade e Auditoria de Software'),
+    new Turma(707, 'Matemática Discreta'),
+  ]
 }
