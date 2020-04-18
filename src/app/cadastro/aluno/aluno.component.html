@@ -284,7 +284,7 @@
       </div>
 
       <!-- Só para mostrar o status do formulário -->
-      <div class="col-md-4">
+      <!-- <div class="col-md-4">
         <div class="form-group">
           <p>Formulário Válido: {{ cadastroForm.valid }}</p>
           <p>Formulário Tocado: {{ cadastroForm.touched }}</p>
@@ -293,7 +293,7 @@
           <br />
           <p>{{ turmas | json }}</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </form>
 </div>
@@ -313,11 +313,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let a of alunos">
-        <th>{{ a.nome }}</th>
-        <td>{{ a.idade }}</td>
-        <td>{{ a.sexo }}</td>
-        <td></td>
+      <tr *ngFor="let aluno of alunos">
+        <th>{{ aluno.nome }}</th>
+        <td>{{ aluno.idade }}</td>
+        <td>{{ aluno.sexo }}</td>
+        <td>{{ aluno.turma }}</td>
       </tr>
     </tbody>
   </table>
