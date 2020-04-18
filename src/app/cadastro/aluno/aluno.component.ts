@@ -14,7 +14,8 @@ export class AlunoComponent implements OnInit {
   MASKS = MASKS;
   cadastroForm: FormGroup;
 
-  alertInvalido: boolean = false;
+  alert: boolean = false;
+  cadastrado: boolean = false;
 
   constructor(private fb: FormBuilder) {}
 
@@ -60,7 +61,8 @@ export class AlunoComponent implements OnInit {
       cidade: "",
       docValidado: false,
     });
-    this.alertInvalido = false;
+    this.alert = false;
+    this.cadastroForm.controls['turma'].disable();
   }
 
   calculaIdade(dtHoje: Date, dtAluno: Date) {
@@ -89,11 +91,17 @@ export class AlunoComponent implements OnInit {
     if (this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.atualizarDadosObjeto();
       this.alunos.push(this.aluno);
-      console.log(this.alunos)
       this.limparFomulario();
+      this.cadastrado = true;
+      setTimeout(() => { this.cadastrado = false }, 2000);
     } else {
-      this.alertInvalido = true;
+      this.alert = true;
+      setTimeout(() => { this.alert = false; }, 2000);
     }
+  }
+
+  fecharAlert() {
+    this.alert = false;
   }
 
   ativaDesativa(valor: any) {

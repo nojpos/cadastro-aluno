@@ -2,8 +2,12 @@
   <h4>Cadastro de Aluno</h4>
 
   <!-- Mensagens -->
-  <div class="alert alert-danger" role="alert" *ngIf="alertInvalido">
-    <strong>Atenção</strong>, o formulário não está preenchico corretamente
+  <div class="alert alert-danger" role="alert" *ngIf="alert">
+    <strong>Atenção</strong>, o formulário não está preenchico corretamente!
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="cadastrado">
+    <strong>Aluno</strong>, cadastrado com sucesso!
   </div>
 
   <hr />
@@ -442,7 +446,6 @@
               id="registrar"
               type="submit"
               class="btn btn-sm btn-block btn-outline-success"
-              [disabled]="!cadastroForm.valid"
             >
               Salvar
             </button>
@@ -482,7 +485,7 @@
   <h4>Alunos Cadastrados</h4>
 
   <hr />
-  <table class="table table-striped table-bordered">
+  <table class="table table-sm table-striped table-bordered">
     <thead>
       <tr>
         <th scope="col">Nome</th>
