@@ -3,7 +3,7 @@ import { Aluno } from "src/app/models/aluno";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MASKS, NgBrazilValidators } from "ng-brazil";
 import { Turma } from "src/app/models/turma";
-import { Uf } from 'src/app/uteis/uf';
+import { Uf } from "src/app/uteis/uf";
 
 @Component({
   selector: "app-aluno",
@@ -40,29 +40,29 @@ export class AlunoComponent implements OnInit {
       cep: ["", [Validators.required, NgBrazilValidators.cep]],
       uf: ["", Validators.required],
       cidade: ["", Validators.required],
-      docValidado: [false, []]
+      docValidado: [false, []],
     });
   }
 
   limparFomulario() {
     this.cadastroForm.reset({
-      nome: '',
-      dataNascimento: '',
-      sexo: 'Masculino',
-      cpf: '',
-      email: '',
-      telefone: '',
-      endereco: '',
-      cep: '',
-      uf: '',
-      cidade: '',
-      docValidado: false
+      nome: "",
+      dataNascimento: "",
+      sexo: "Masculino",
+      cpf: "",
+      email: "",
+      telefone: "",
+      endereco: "",
+      cep: "",
+      uf: "",
+      cidade: "",
+      docValidado: false,
     });
     this.alertInvalido = false;
   }
 
   calculaIdade(dtHoje: Date, dtAluno: Date) {
-    if (dtHoje.getMonth < dtAluno.getMonth) {
+    if (dtHoje.getMonth >= dtAluno.getMonth) {
       if (dtHoje.getDay() < dtAluno.getDay()) {
         return dtHoje.getFullYear() - dtAluno.getFullYear() - 1;
       } else {
