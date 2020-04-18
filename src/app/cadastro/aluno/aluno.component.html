@@ -249,23 +249,20 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="validados" class="col-form-label-sm">
-              <input type="checkbox" name="dvalidados" id="dvalidados" formControlName="docValidado"/>
+              <input type="checkbox" name="dvalidados" id="dvalidados" formControlName="docValidado" (click)="ativaDesativa(!cadastroForm.value.docValidado)"/>
               Documentos validados na secretaria.
             </label>
           </div>
         </div>
       </div>
-      <div class="row" *ngIf="cadastroForm.value.docValidado">
+      <div class="row">
         <!-- turmas -->
         <div class="col-md-6">
           <div class="form-group">
             <label for="turmas" class="col-form-label-sm">Turmas</label>
-            <div class="card card-body">
-              <label *ngFor="let turma of turmas" class="checkbox-inline">
-                <input type="checkbox" value="{{ turma.numero }}" />
-                {{ turma.nome }}
-              </label>
-            </div>
+              <select class="custom-select" multiple formControlName="turma" [ngClass]="{'is-invalid': cadastroForm.get('turma').errors && (cadastroForm.get('turma').dirty || cadastroForm.get('turma').touched)}">
+                <option *ngFor="let turma of turmas" value="{{turma.numero}}" [selected]= "0">{{turma.nome}}</option>
+              </select>
           </div>
         </div>
       </div>
@@ -287,7 +284,7 @@
       </div>
 
       <!-- Só para mostrar o status do formulário -->
-      <!-- <div class="col-md-4">
+      <div class="col-md-4">
         <div class="form-group">
           <p>Formulário Válido: {{ cadastroForm.valid }}</p>
           <p>Formulário Tocado: {{ cadastroForm.touched }}</p>
@@ -296,7 +293,7 @@
           <br />
           <p>{{ turmas | json }}</p>
         </div>
-      </div> -->
+      </div>
     </div>
   </form>
 </div>

@@ -36,6 +36,7 @@ export class AlunoComponent implements OnInit {
       cpf: ["", [Validators.required, NgBrazilValidators.cpf]],
       email: ["", [Validators.required, Validators.email]],
       telefone: ["", [Validators.required, NgBrazilValidators.telefone]],
+      turma: [{value: '', disabled: true}, [Validators.required]],
       endereco: ["", [Validators.required, Validators.minLength(30)]],
       cep: ["", [Validators.required, NgBrazilValidators.cep]],
       uf: ["", Validators.required],
@@ -52,6 +53,7 @@ export class AlunoComponent implements OnInit {
       cpf: "",
       email: "",
       telefone: "",
+      turma:604,
       endereco: "",
       cep: "",
       uf: "",
@@ -87,9 +89,18 @@ export class AlunoComponent implements OnInit {
     if (this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.atualizarDadosObjeto();
       this.alunos.push(this.aluno);
+      console.log(this.alunos)
       this.limparFomulario();
     } else {
       this.alertInvalido = true;
+    }
+  }
+
+  ativaDesativa(valor: any) {
+    if (valor) {
+      this.cadastroForm.controls['turma'].enable();
+    }else {
+      this.cadastroForm.controls['turma'].disable();
     }
   }
 }

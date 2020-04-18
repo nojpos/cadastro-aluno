@@ -8,7 +8,7 @@ export class Aluno {
   cpf: string;
   email: string;
   telefone: string;
-  turma: Turma;
+  turma: Turma[];
   endereco: string;
   cep: number;
   uf: string;
