@@ -81,14 +81,12 @@ export class AlunoComponent implements OnInit {
     let dtAluno = new Date(dt);
 
     this.aluno.idade = this.calculaIdade(dtAtual, dtAluno);
-
-    this.alunos.push(this.aluno);
   }
 
   adicionar() {
     if (this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.atualizarDadosObjeto();
-
+      this.alunos.push(this.aluno);
       this.limparFomulario();
     } else {
       this.alertInvalido = true;
