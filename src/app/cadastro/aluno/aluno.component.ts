@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MASKS, NgBrazilValidators } from "ng-brazil";
 import { Turma } from "src/app/models/turma";
 import { Uf } from "src/app/uteis/uf";
+import { DadosSexo } from './data';
 
 @Component({
   selector: "app-aluno",
@@ -11,21 +12,45 @@ import { Uf } from "src/app/uteis/uf";
   styles: [""],
 })
 export class AlunoComponent implements OnInit {
+
   MASKS = MASKS;
   cadastroForm: FormGroup;
 
   alert: boolean = false;
   cadastrado: boolean = false;
 
-  constructor(private fb: FormBuilder) {}
-
   aluno: Aluno;
   turmas: Turma[] = Turma.listaTurmas;
   alunos: Aluno[] = [];
   ufs: Uf[] = Uf.listaUf;
 
+  single: any[];
+  view: any[] = [400, 300];
+
+  dadosSexo: DadosSexo[] = DadosSexo.listadados;
+
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Sexo';
+  showYAxisLabel = true;
+  yAxisLabel = 'Alunos';
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#AAAAAA']
+  };
+
+  constructor(private fb: FormBuilder) {}
+
   ngOnInit(): void {
     this.criarFormulario();
+  }
+
+  onSelect(event) {
+    console.log(event);
   }
 
   // Aqui vão os campos do formulário
@@ -90,8 +115,13 @@ export class AlunoComponent implements OnInit {
   adicionar() {
     if (this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.atualizarDadosObjeto();
+
       this.alunos.push(this.aluno);
+      this.adicionarDadosChart(this.aluno);
+      
       this.limparFomulario();
+      this.aluno = new Aluno();
+
       this.cadastrado = true;
       setTimeout(() => { this.cadastrado = false }, 2000);
     } else {
@@ -111,10 +141,13 @@ export class AlunoComponent implements OnInit {
       this.cadastroForm.controls['turma'].disable();
     }
   }
+
+  adicionarDadosChart(aluno: Aluno) {
+    let posicaoAtualizar = this.dadosSexo.findIndex((cd) => cd.name === aluno.sexo)
+
+    this.dadosSexo[posicaoAtualizar].value += 1;
+    this.dadosSexo = [...this.dadosSexo];
+
+    console.log(this.dadosSexo)
+  }
 }
-
-// Para validar CPF ou outros campos, esse modulo foi instaldo e está sendo usado
-// https://www.npmjs.com/package/ng-brazil
-
-// Outras validações, não instalei mas caso necessario pode instalar
-// https://www.npmjs.com/package/ng2-validation
