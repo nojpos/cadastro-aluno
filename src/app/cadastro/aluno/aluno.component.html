@@ -508,18 +508,31 @@
 
 
 <div class="container">
-  <ngx-charts-bar-vertical
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="dadosSexo"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  (select)="onSelect($event)">
-</ngx-charts-bar-vertical>
+  <div class="row">
+    <div class="col-md-6">
+      <ngx-charts-bar-vertical
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="dadosSexo"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)">
+      </ngx-charts-bar-vertical>
+    </div>
+    <div class="com=md-6">
+      <ngx-charts-advanced-pie-chart
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="dadosSexo"
+        [gradient]="gradient"
+        (select)="onSelect($event)">
+      </ngx-charts-advanced-pie-chart>
+    </div>
+  </div>
 </div>

@@ -38,6 +38,8 @@ export class AlunoComponent implements OnInit {
   xAxisLabel = 'Sexo';
   showYAxisLabel = true;
   yAxisLabel = 'Alunos';
+  showLabels: boolean = true;
+  isDoughnut: boolean = false;
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#AAAAAA']
