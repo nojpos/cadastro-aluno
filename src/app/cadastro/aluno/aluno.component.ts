@@ -62,7 +62,7 @@ export class AlunoComponent implements OnInit {
       cpf: ["", [Validators.required, NgBrazilValidators.cpf]],
       email: ["", [Validators.required, Validators.email]],
       telefone: ["", [Validators.required, NgBrazilValidators.telefone]],
-      turma: [{value: '', disabled: true}, [Validators.required]],
+      turma: [{ value: "", disabled: true }, [Validators.required]],
       endereco: ["", [Validators.required, Validators.minLength(30)]],
       cep: ["", [Validators.required, NgBrazilValidators.cep]],
       uf: ["", Validators.required],
@@ -79,7 +79,7 @@ export class AlunoComponent implements OnInit {
       cpf: "",
       email: "",
       telefone: "",
-      turma:604,
+      turma: 604,
       endereco: "",
       cep: "",
       uf: "",
@@ -87,14 +87,12 @@ export class AlunoComponent implements OnInit {
       docValidado: false,
     });
     this.alert = false;
-    this.cadastroForm.controls['turma'].disable();
+    this.cadastroForm.controls["turma"].disable();
   }
 
   calculaIdade(dtHoje: Date, dtAluno: Date) {
-    if (dtHoje.getMonth >= dtAluno.getMonth) {
-      if (dtHoje.getDay() < dtAluno.getDay()) {
-        return dtHoje.getFullYear() - dtAluno.getFullYear() - 1;
-      } else {
+    if (dtHoje.getMonth() + 1 >= dtAluno.getMonth() + 1) {
+      if (dtHoje.getDate() >= dtAluno.getDate()) {
         return dtHoje.getFullYear() - dtAluno.getFullYear();
       }
     }
@@ -123,10 +121,14 @@ export class AlunoComponent implements OnInit {
       this.aluno = new Aluno();
 
       this.cadastrado = true;
-      setTimeout(() => { this.cadastrado = false }, 2000);
+      setTimeout(() => {
+        this.cadastrado = false;
+      }, 2000);
     } else {
       this.alert = true;
-      setTimeout(() => { this.alert = false; }, 2000);
+      setTimeout(() => {
+        this.alert = false;
+      }, 2000);
     }
   }
 
@@ -136,9 +138,9 @@ export class AlunoComponent implements OnInit {
 
   ativaDesativa(valor: any) {
     if (valor) {
-      this.cadastroForm.controls['turma'].enable();
-    }else {
-      this.cadastroForm.controls['turma'].disable();
+      this.cadastroForm.controls["turma"].enable();
+    } else {
+      this.cadastroForm.controls["turma"].disable();
     }
   }
 
